@@ -1,7 +1,8 @@
 # lamp-wordpress-docker
-test
+```
 docker build -t ubuntu-wordpress https://github.com/ningappa/ubuntu-trusty-wordpress.git
-
+```
+```
 docker run -d --name 6thstreet \
   -e VIRTUAL_HOST=www.6thstreet.xyz  \
   -e VIRTUAL_DOMAIN=www.6thstreet.xyz \
@@ -12,8 +13,6 @@ docker run -d --name 6thstreet \
   -e WP_PASS=pass1233 \
   -e USER_EMAIL=ningappa@poweruphosting.com  \
   -e FILEMANAGERUSER=filemgr \
-  -e FILEMANAGERPASSWORD=filepassword \
-  ningappa/wordpress
-  lamp-wordpress-docker
-
-  ningappa/wordpress
+  -e FILEMANAGERPASSWORD=filepassword \  
+  ubuntu-wordpress
+```
