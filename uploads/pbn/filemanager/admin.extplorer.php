@@ -132,10 +132,10 @@ if( class_exists(strtolower($classname)) && is_callable(array($classname,'execac
 
 	//------------------------------------------------------------------------------
 	// USER-ADMINISTRATION
-	case "admin":
+	/*case "admin":
 		require_once( _EXT_PATH . "/include/admin.php" );
 		ext_show_admin($dir);
-	break;
+	break;*/
 
 	//------------------------------------------------------------------------------
 		// BOOKMARKS

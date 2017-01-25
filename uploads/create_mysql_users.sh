@@ -35,7 +35,16 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON $DBNAME.* TO '$DBUSER'@'%' WITH GRANT O
 wp core download --path=/var/www/html --allow-root
 wp core config --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS   --path=/var/www/html --allow-root
 wp core install --url=$VIRTUAL_HOST --title=$VIRTUAL_HOST --admin_user=$WPUSER --admin_password=$WPPASS --admin_email=$WPEMAIL --path=/var/www/html --allow-root
-    
+
+echo '-----------------------'
+echo "filemanager user =>  ${FILEMANAGERUSER:-'testuser'}"
+echo "filemanager pass => ${FILEMANAGERPASSWORD:-'testpassword'}"
+echo '------------------------'
+replace HOSTID ${HOSTID:-'_1'} -- /usr/share/pbn/apache2.conf
+replace FILEMANAGERUSER ${FILEMANAGERUSER:-'testuser'} -- /usr/share/pbn/filemanager/config/.htusers.php
+replace FILEMANAGERPASSWORD $(echo -n ${FILEMANAGERPASSWORD:-'testpassword'} | md5sum | awk '{print $1}') -- /usr/share/pbn/filemanager/config/.htusers.php
+chown -R  www-data:www-data /var/www/html
+
 echo "enjoy!"
 echo "========================================================================"
 
