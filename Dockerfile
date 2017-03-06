@@ -42,7 +42,7 @@ RUN cp wp-cli.phar /usr/local/bin/wp && \
     chmod +x /usr/local/bin/wp
 #Download wordpress latest core to /var/www/html
 
-EXPOSE 80 3306 2083
+EXPOSE 80 3306 2083 7890
 
 VOLUME  ["/etc/mysql", "/var/lib/mysql", "/var/www/html" ]
 # Add Health-check for image
