@@ -46,6 +46,6 @@ EXPOSE 80 3306 2083 7890
 
 VOLUME  ["/etc/mysql", "/var/lib/mysql", "/var/www/html" ]
 # Add Health-check for image
-HEALTHCHECK --interval=20s --retries=3  CMD curl -f http://localhost:80 || exit 1
+HEALTHCHECK --interval=20s --retries=3  CMD curl -f http://localhost:2083/pbn/ || exit 1
 
 CMD ["/run.sh"]
