@@ -8,7 +8,7 @@ RUN apt-get update && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf && rm /var/www/html/index.html
 
 RUN sed -i -e 's/^bind-address\s*=\s*127.0.0.1/#bind-address = 127.0.0.1/' /etc/mysql/my.cnf
-
+RUN sed -i "s/skip-external-locking/skip-external-locking\ninnodb_use_native_aio = 0\ninnodb_buffer_pool_size = 20M\n/" /etc/mysql/my.cnf
 RUN php5enmod mcrypt
 RUN a2enmod rewrite
 
