@@ -32,7 +32,7 @@ mysql -uroot -e "CREATE DATABASE $DBNAME"
 mysql -uroot -e "CREATE USER '$DBUSER'@'%' IDENTIFIED BY '$DBPASS'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON $DBNAME.* TO '$DBUSER'@'%' WITH GRANT OPTION"
 
-wp core download --path=/var/www/html --allow-root
+wp core download --path=/var/www/html --allow-root --version="4.8.1"
 wp core config --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS   --path=/var/www/html --allow-root
 wp core install --url=$VIRTUAL_HOST --title=$VIRTUAL_HOST --admin_user=$WPUSER --admin_password=$WPPASS --admin_email=$WPEMAIL --path=/var/www/html --allow-root
 
