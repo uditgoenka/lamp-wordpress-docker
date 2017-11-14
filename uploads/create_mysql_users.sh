@@ -1,5 +1,7 @@
 #!/bin/bash
 sed -i "s/skip-external-locking/skip-external-locking\ninnodb_use_native_aio = 0\n/" /etc/mysql/my.cnf
+chown -R mysql:mysql /var/lib/mysql/
+chmod -R 755 /var/lib/mysql/
 /usr/bin/mysqld_safe > /dev/null 2>&1 &
 
 RET=1
